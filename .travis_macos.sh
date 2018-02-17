@@ -26,11 +26,6 @@ sed -i -e 's/org.yourcompany.Flameshot/org.dharkael.Flameshot/g' Flameshot.app/C
 $QTDIR/bin/macdeployqt Flameshot.app
 python ../macdeployqtfix/macdeployqtfix.py Flameshot.app/Contents/MacOS/Flameshot $QTDIR
 
-# Fix Helpers/QtWebEngineProcess.app
-cd Flameshot.app/Contents/Frameworks/QtWebEngineCore.framework/Versions/5/Helpers
-$QTDIR/bin/macdeployqt QtWebEngineProcess.app
-python ${project_dir}/build/macdeployqtfix/macdeployqtfix.py QtWebEngineProcess.app/Contents/MacOS/QtWebEngineProcess $QTDIR
-
 cd ${project_dir}/build
 mkdir -p distrib/Flameshot
 cd distrib/Flameshot
