@@ -8,6 +8,10 @@ language: cpp
 # os:
 #   - linux
 
+# branches:
+#   only:
+#     - master
+
 cache:
     directories:
       - $HOME/.cache
