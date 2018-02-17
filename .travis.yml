@@ -25,29 +25,22 @@ env:
 matrix:
     include:
         - os: linux
-          compiler: g++
           env: OS=fedora DIST=26
         - os: linux
-          compiler: g++
           env: OS=fedora DIST=27
         - os: linux
-          compiler: g++
           env: OS=ubuntu DIST=trusty
         - os: linux
-          compiler: g++
           env: OS=ubuntu DIST=xenial
         - os: linux
-          compiler: g++
           env: OS=ubuntu DIST=artful
         - os: linux
-          compiler: g++
           env: OS=debian DIST=jessie
         - os: linux
-          compiler: g++
           env: OS=debian DIST=stretch 
         - os: osx
           compiler: clang
-          osx_image: xcode8
+          osx_image: xcode9.2
     # matrix:
     #   #The actual list of distribution is available on
     #   #https://hub.docker.com/r/packpack/packpack/tags/
