@@ -33,7 +33,7 @@ void SystemNotification::sendMessage(
         return;
     }
 
-#ifndef Q_OS_WIN
+#ifdef Q_OS_LINUX
     QList<QVariant> args;
     args << (qAppName())                 //appname
          << static_cast<unsigned int>(0) //id
