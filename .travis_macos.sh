@@ -3,6 +3,7 @@ project_dir=$(pwd)
 
 brew update > /dev/null
 brew install qt
+brew install dbus
 QTDIR="/usr/local/opt/qt"
 PATH="$QTDIR/bin:$PATH"
 LDFLAGS=-L$QTDIR/lib
