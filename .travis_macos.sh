@@ -13,11 +13,12 @@ CPPFLAGS=-I$QTDIR/include
 cd ${project_dir}
 mkdir build
 cd build
-qmake -v
+qmake -version
 qmake CONFIG-=debug CONFIG+=release CONFIG+=packaging ../flameshot.pro
 make -j2
 
 git clone https://github.com/aurelien-rainone/macdeployqtfix.git
+pwd && ls
 
 # Package DMG from build/src/Flamshot.app directory
 cd src/
