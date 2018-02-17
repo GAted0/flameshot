@@ -2,7 +2,7 @@
 #include "src/utils/confighandler.h"
 #include <QApplication>
 
-#ifndef Q_OS_WIN
+#ifdef Q_OS_LINUX
 #include <QDBusConnection>
 #include <QDBusMessage>
 #include <QDBusInterface>
