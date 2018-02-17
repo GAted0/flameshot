@@ -79,7 +79,7 @@ int main(int argc, char *argv[]) {
         return app.exec();
     }
 
-#ifndef Q_OS_WIN Q_OS_MACOS
+#ifdef Q_OS_LINUX
     /*--------------|
      * CLI parsing  |
      * ------------*/
