@@ -11,7 +11,7 @@ DEFINES += APP_VERSION=\\\"$$TAG_VERSION\\\"
 
 QT  += core gui widgets network
 
-unix: {
+unix:!macx {
     QT  += dbus
 }
 
