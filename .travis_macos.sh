@@ -31,7 +31,7 @@ python ${project_dir}/build/macdeployqtfix/macdeployqtfix.py Flameshot.app/Conte
 cd ${project_dir}/build
 mkdir -p distrib/Flameshot
 cd distrib/Flameshot
-mv ../../app/Flameshot.app ./
+mv ${project_dir}/build/app/Flameshot.app ./
 cp "${project_dir}/LICENSE" "LICENSE"
 cp "${project_dir}/README.md" "README.md"
 echo "${VERSION}" > version

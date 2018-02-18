@@ -5,9 +5,6 @@ services:
 
 language: cpp
 
-# os:
-#   - linux
-
 # branches:
 #   only:
 #     - master
