@@ -25,20 +25,20 @@ env:
 
 matrix:
     include:
-        # - os: linux
-        #   env: OS=fedora DIST=26
-        # - os: linux
-        #   env: OS=fedora DIST=27
-        # - os: linux
-        #   env: OS=ubuntu DIST=trusty
-        # - os: linux
-        #   env: OS=ubuntu DIST=xenial
-        # - os: linux
-        #   env: OS=ubuntu DIST=artful
-        # - os: linux
-        #   env: OS=debian DIST=jessie
-        # - os: linux
-        #   env: OS=debian DIST=stretch 
+        - os: linux
+          env: OS=fedora DIST=26
+        - os: linux
+          env: OS=fedora DIST=27
+        - os: linux
+          env: OS=ubuntu DIST=trusty
+        - os: linux
+          env: OS=ubuntu DIST=xenial
+        - os: linux
+          env: OS=ubuntu DIST=artful
+        - os: linux
+          env: OS=debian DIST=jessie
+        - os: linux
+          env: OS=debian DIST=stretch 
         - os: osx
           compiler: clang
           osx_image: xcode9.2

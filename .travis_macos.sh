@@ -22,7 +22,6 @@ pwd && ls
 ls /Users/travis/build/ZetaoYang/flameshot
 
 # Package DMG from build/flamshot.app directory
-sed -i -e 's/org.yourcompany.Flameshot/org.dharkael.Flameshot/g' ./flameshot.app/Contents/Info.plist
 $QTDIR/bin/macdeployqt flameshot.app
 python ${project_dir}/build/macdeployqtfix/macdeployqtfix.py flameshot.app/Contents/MacOS/flameshot $QTDIR
 
@@ -40,7 +39,7 @@ ln -s /Applications ./Applications
 cd ..
 hdiutil create -srcfolder ./Flameshot -format UDBZ ./flameshot.dmg
 mv flameshot.dmg flameshot_X64_$VERSION.dmg
-curl --upload-file ./flameshot_X64_$VERSION.dmg "https://transfer.sh/Flameshot_X64_$VERSION.dmg"
+curl --upload-file ./flameshot_X64_$VERSION.dmg "https://transfer.sh/flameshot_X64_$VERSION.dmg"
 cd ..
 
 exit 0
