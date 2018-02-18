@@ -21,10 +21,7 @@ pwd && ls
 
 ls /Users/travis/build/ZetaoYang/flameshot
 
-# Package DMG from build/app/flamshot.app directory
-mkdir app
-cd app/
-
+# Package DMG from build/flamshot.app directory
 sed -i -e 's/org.yourcompany.Flameshot/org.dharkael.Flameshot/g' ./flameshot.app/Contents/Info.plist
 $QTDIR/bin/macdeployqt flameshot.app
 python ${project_dir}/build/macdeployqtfix/macdeployqtfix.py flameshot.app/Contents/MacOS/flameshot $QTDIR
@@ -32,7 +29,7 @@ python ${project_dir}/build/macdeployqtfix/macdeployqtfix.py flameshot.app/Conte
 cd ${project_dir}/build
 mkdir -p distrib/Flameshot
 cd distrib/Flameshot
-mv ${project_dir}/build/app/flameshot.app ${project_dir}/build/distrib/Flameshot/
+mv ${project_dir}/build/flameshot.app ${project_dir}/build/distrib/Flameshot/
 cp "${project_dir}/LICENSE" "LICENSE"
 cp "${project_dir}/README.md" "README.md"
 echo ${VERSION} > version
