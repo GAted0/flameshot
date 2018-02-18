@@ -3,7 +3,6 @@ project_dir=$(pwd)
 
 brew update > /dev/null
 brew install qt
-brew install dbus
 QTDIR="/usr/local/opt/qt"
 PATH="$QTDIR/bin:$PATH"
 LDFLAGS=-L$QTDIR/lib
@@ -21,7 +20,8 @@ git clone https://github.com/aurelien-rainone/macdeployqtfix.git
 pwd && ls
 
 # Package DMG from build/app/Flamshot.app directory
-mkdir app
+mkdir -p ./app/Flamshot.app/Contents
+touch ./app/Flamshot.app/Contents/Info.plist
 cd app/
 
 sed -i -e 's/org.yourcompany.Flameshot/org.dharkael.Flameshot/g' Flameshot.app/Contents/Info.plist
