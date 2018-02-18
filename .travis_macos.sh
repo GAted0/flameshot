@@ -34,14 +34,14 @@ cd distrib/Flameshot
 mv ${project_dir}/build/app/Flameshot.app ./
 cp "${project_dir}/LICENSE" "LICENSE"
 cp "${project_dir}/README.md" "README.md"
-echo "${VERSION}" > version
+echo ${VERSION} > version
 echo "${TRAVIS_COMMIT}" >> version
 
 ln -s /Applications ./Applications
 
 cd ..
 hdiutil create -srcfolder ./Flameshot -format UDBZ ./Flameshot.dmg
-mv Flameshot.dmg Flameshot_X64_${VERSION}.dmg
+mv Flameshot.dmg Flameshot_X64_$VERSION.dmg
 cd ..
 
 exit 0
