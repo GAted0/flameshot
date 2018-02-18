@@ -19,12 +19,14 @@ make -j$(nproc)
 git clone https://github.com/aurelien-rainone/macdeployqtfix.git
 pwd && ls
 
+ls /Users/travis/build/ZetaoYang/flameshot
+
 # Package DMG from build/app/Flamshot.app directory
 mkdir -p ./app/Flamshot.app/Contents
 touch ./app/Flamshot.app/Contents/Info.plist
 cd app/
 
-sed -i -e 's/org.yourcompany.Flameshot/org.dharkael.Flameshot/g' Flameshot.app/Contents/Info.plist
+sed -i -e 's/org.yourcompany.Flameshot/org.dharkael.Flameshot/g' ./Flameshot.app/Contents/Info.plist
 $QTDIR/bin/macdeployqt Flameshot.app
 python ${project_dir}/build/macdeployqtfix/macdeployqtfix.py Flameshot.app/Contents/MacOS/Flameshot $QTDIR
 
