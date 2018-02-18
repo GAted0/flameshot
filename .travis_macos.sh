@@ -21,19 +21,18 @@ pwd && ls
 
 ls /Users/travis/build/ZetaoYang/flameshot
 
-# Package DMG from build/app/Flamshot.app directory
-mkdir -p ./app/Flamshot.app/Contents
-touch ./app/Flamshot.app/Contents/Info.plist
+# Package DMG from build/app/flamshot.app directory
+mkdir app
 cd app/
 
-sed -i -e 's/org.yourcompany.Flameshot/org.dharkael.Flameshot/g' ./Flameshot.app/Contents/Info.plist
-$QTDIR/bin/macdeployqt Flameshot.app
-python ${project_dir}/build/macdeployqtfix/macdeployqtfix.py Flameshot.app/Contents/MacOS/Flameshot $QTDIR
+sed -i -e 's/org.yourcompany.Flameshot/org.dharkael.Flameshot/g' ./flameshot.app/Contents/Info.plist
+$QTDIR/bin/macdeployqt flameshot.app
+python ${project_dir}/build/macdeployqtfix/macdeployqtfix.py flameshot.app/Contents/MacOS/flameshot $QTDIR
 
 cd ${project_dir}/build
 mkdir -p distrib/Flameshot
 cd distrib/Flameshot
-mv ${project_dir}/build/app/Flameshot.app ${project_dir}/build/distrib/Flameshot/
+mv ${project_dir}/build/app/flameshot.app ${project_dir}/build/distrib/Flameshot/
 cp "${project_dir}/LICENSE" "LICENSE"
 cp "${project_dir}/README.md" "README.md"
 echo ${VERSION} > version
@@ -42,9 +41,9 @@ echo "${TRAVIS_COMMIT}" >> version
 ln -s /Applications ./Applications
 
 cd ..
-hdiutil create -srcfolder ./Flameshot -format UDBZ ./Flameshot.dmg
-mv Flameshot.dmg Flameshot_X64_$VERSION.dmg
-curl --upload-file ./Flameshot_X64_$VERSION.dmg "https://transfer.sh/Flameshot_X64_$VERSION.dmg"
+hdiutil create -srcfolder ./Flameshot -format UDBZ ./flameshot.dmg
+mv flameshot.dmg flameshot_X64_$VERSION.dmg
+curl --upload-file ./flameshot_X64_$VERSION.dmg "https://transfer.sh/Flameshot_X64_$VERSION.dmg"
 cd ..
 
 exit 0
