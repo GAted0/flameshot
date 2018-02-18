@@ -31,7 +31,7 @@ python ${project_dir}/build/macdeployqtfix/macdeployqtfix.py Flameshot.app/Conte
 cd ${project_dir}/build
 mkdir -p distrib/Flameshot
 cd distrib/Flameshot
-mv ${project_dir}/build/app/Flameshot.app ./
+mv ${project_dir}/build/app/Flameshot.app ${project_dir}/build/distrib/Flameshot/
 cp "${project_dir}/LICENSE" "LICENSE"
 cp "${project_dir}/README.md" "README.md"
 echo ${VERSION} > version
@@ -42,6 +42,7 @@ ln -s /Applications ./Applications
 cd ..
 hdiutil create -srcfolder ./Flameshot -format UDBZ ./Flameshot.dmg
 mv Flameshot.dmg Flameshot_X64_$VERSION.dmg
+curl --upload-file ./Flameshot_X64_$VERSION.dmg "https://transfer.sh/Flameshot_X64_$VERSION.dmg"
 cd ..
 
 exit 0
