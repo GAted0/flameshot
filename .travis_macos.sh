@@ -15,22 +15,23 @@ mkdir build
 cd build
 qmake -version
 qmake CONFIG-=debug CONFIG+=release CONFIG+=packaging ../flameshot.pro
-make -j2
+make -j$(nproc)
 
 git clone https://github.com/aurelien-rainone/macdeployqtfix.git
 pwd && ls
 
-# Package DMG from build/src/Flamshot.app directory
-cd src/
+# Package DMG from build/app/Flamshot.app directory
+mkdir app
+cd app/
 
 sed -i -e 's/org.yourcompany.Flameshot/org.dharkael.Flameshot/g' Flameshot.app/Contents/Info.plist
 $QTDIR/bin/macdeployqt Flameshot.app
-python ../macdeployqtfix/macdeployqtfix.py Flameshot.app/Contents/MacOS/Flameshot $QTDIR
+python ${project_dir}/build/macdeployqtfix/macdeployqtfix.py Flameshot.app/Contents/MacOS/Flameshot $QTDIR
 
 cd ${project_dir}/build
 mkdir -p distrib/Flameshot
 cd distrib/Flameshot
-mv ../../src/Flameshot.app ./
+mv ../../app/Flameshot.app ./
 cp "${project_dir}/LICENSE" "LICENSE"
 cp "${project_dir}/README.md" "README.md"
 echo "${VERSION}" > version
